@@ -16,3 +16,19 @@ Here, I re-examine the analysis of Oeppen and Vaupel (2002).
 
 # Analysis
 
+```{r, message=FALSE}
+library(gapminder)
+library(tidyverse)
+data("gapminder_unfiltered")
+head(gapminder_unfiltered)
+```
+
+```{r}
+gapminder_unfiltered %>%
+  group_by(year)%>%
+  filter(lifeExp==max(lifeExp))%>%
+  arrange(year)->maxdf
+maxdf
+```
+
+
